@@ -1,10 +1,10 @@
 from box_sdk_gen import BoxClient, User
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def test_get_ccg_client(box_client_ccg: BoxClient):
-    from dotenv import load_dotenv
-
-    load_dotenv()
     client = box_client_ccg
     me: User = client.users.get_user_me()
 
