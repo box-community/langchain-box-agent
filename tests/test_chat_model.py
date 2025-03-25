@@ -11,7 +11,10 @@ def test_box_agent_chat_model_simple():
 
     box_agent = LangChainBoxAgent(client, model)
 
-    response = box_agent.chat_model.invoke([HumanMessage(content="hi!")])
+    response = box_agent.chat.invoke(
+        {"messages": [HumanMessage(content="hello world")]}
+    )
 
-    assert response.content is not None
-    assert len(response.content) >= 1
+    messages = response.get("messages", [])
+    assert messages != []
+    assert any("hello".lower() in message.content.lower() for message in messages)
