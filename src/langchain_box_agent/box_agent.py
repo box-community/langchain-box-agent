@@ -1,20 +1,27 @@
-from typing import List
+import json
+from typing import List, Union
+
+from box_ai_agents_toolkit import (
+    BoxClient,
+    File,
+    Folder,
+    SearchForContentContentTypes,
+    box_claude_ai_agent_ask,
+    box_claude_ai_agent_extract,
+    box_file_ai_ask,
+    box_file_ai_extract,
+    box_file_text_extract,
+    box_folder_list_content,
+    box_locate_folder_by_name,
+    box_search,
+)
+from langchain.tools.base import StructuredTool
 from langchain_core.language_models import (
     BaseChatModel,
 )
 from langchain_core.tools import BaseTool
-from langgraph.prebuilt import create_react_agent
-from langchain.tools.base import StructuredTool
-
-from box_ai_agents_toolkit import (
-    BoxClient,
-    SearchForContentContentTypes,
-    box_search,
-    box_file_text_extract,
-    box_file_ai_ask,
-    box_claude_ai_agent_ask,
-)
 from langgraph.graph.graph import CompiledGraph
+from langgraph.prebuilt import create_react_agent
 
 
 class LangChainBoxAgent:
@@ -48,6 +55,24 @@ class LangChainBoxAgent:
         self.tools.append(
             StructuredTool.from_function(
                 self.box_ask_ai_tool,
+                parse_docstring=True,
+            )
+        )
+        self.tools.append(
+            StructuredTool.from_function(
+                self.box_search_folder_by_name,
+                parse_docstring=True,
+            )
+        )
+        self.tools.append(
+            StructuredTool.from_function(
+                self.box_ai_extract_data,
+                parse_docstring=True,
+            )
+        )
+        self.tools.append(
+            StructuredTool.from_function(
+                self.box_list_folder_content_by_folder_id,
                 parse_docstring=True,
             )
         )
@@ -138,3 +163,68 @@ class LangChainBoxAgent:
         )
 
         return response
+
+    def box_search_folder_by_name(self, folder_name: str) -> str:
+        """Locates a folder in Box by its name.
+
+        Args:
+            folder_name (str): The name of the folder to locate.
+
+        Returns:
+            str: A formatted string containing the folder's ID and name.
+        """
+
+        search_results = box_locate_folder_by_name(self.client, folder_name)
+
+        # Return the "id", "name", "description" of the search results
+        search_results = [
+            f"{folder.name} (id:{folder.id})" for folder in search_results
+        ]
+
+        return "\n".join(search_results)
+
+    def box_ai_extract_data(self, file_id: str, fields: str) -> str:
+        """Extracts data from a file in Box using AI.
+
+        Args:
+            file_id (str): The ID of the file to analyze.
+            fields (str): The fields to extract from the file.
+
+        Returns:
+            str: The extracted data in JSON string format.
+        """
+
+        ai_agent = box_claude_ai_agent_extract()
+        response = box_file_ai_extract(self.client, file_id, fields, ai_agent=ai_agent)
+
+        return json.dumps(response)
+
+    def box_list_folder_content_by_folder_id(
+        self, folder_id: str, is_recursive: bool
+    ) -> str:
+        """Lists the content of a folder in Box by its ID.
+
+        Args:
+            folder_id (str): The ID of the folder to list the content of.
+            is_recursive (bool): Whether to list the content recursively.
+
+        Returns:
+            str: The content of the folder in JSON string format, including the "id", "name", "type", and "description".
+        """
+
+        response: List[Union[File, Folder]] = box_folder_list_content(
+            self.client, folder_id, is_recursive
+        )
+
+        response = [
+            {
+                "id": item.id,
+                "name": item.name,
+                "type": item.type,
+                "description": item.description
+                if hasattr(item, "description")
+                else None,
+            }
+            for item in response
+        ]
+        return json.dumps(response)

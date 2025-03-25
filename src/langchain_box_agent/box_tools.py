@@ -1,6 +1,5 @@
-from langchain_core.tools import tool
-
 from box_ai_agents_toolkit import BoxClient, get_ccg_client
+from langchain_core.tools import tool
 
 
 @tool(parse_docstring=True)

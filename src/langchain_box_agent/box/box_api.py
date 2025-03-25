@@ -4,8 +4,8 @@ import json
 import logging
 from dataclasses import dataclass
 from typing import Iterable, List, Union
-import requests
 
+import requests
 from box_sdk_gen import (
     AiAgentAsk,
     AiAgentAskTypeField,

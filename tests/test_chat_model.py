@@ -1,7 +1,8 @@
-from src.langchain_box_agent.box_agent import LangChainBoxAgent
-from langchain_core.messages import HumanMessage
-from langchain.chat_models import init_chat_model
 from box_ai_agents_toolkit import BoxClient, get_ccg_client
+from langchain.chat_models import init_chat_model
+from langchain_core.messages import HumanMessage
+
+from src.langchain_box_agent.box_agent import LangChainBoxAgent
 
 
 def test_box_agent_chat_model_simple():
