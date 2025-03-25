@@ -30,11 +30,15 @@ wheels = [
 
 [[package]]
 name = "box-ai-agents-toolkit"
-version = "0.0.33"
-source = { git = "https://github.com/box-community/box-ai-agents-toolkit#06f2cb739a35ab8258e196e8cf4eab6c9538f747" }
+version = "0.0.34"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "box-sdk-gen" },
     { name = "python-dotenv" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/95/a6/3246498bce9b6027ae544af52c68e4f15369c408576103be349d8e859010/box_ai_agents_toolkit-0.0.34.tar.gz", hash = "sha256:e1753b3240a57080d749389b62c10953681ccf7578c4be9f245c3af08c4f8a4c", size = 20902 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/01/7d/a725170074db5f1550428aaf8d3fbf55d6afb304c20b52c0f92e8df46729/box_ai_agents_toolkit-0.0.34-py3-none-any.whl", hash = "sha256:2ca3a3ccbc81a276e6f8840f1a26aa44143902af8f6f449292c3cffae1b3a648", size = 9325 },
 ]
 
 [[package]]
@@ -373,7 +377,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "box-ai-agents-toolkit", git = "https://github.com/box-community/box-ai-agents-toolkit" },
+    { name = "box-ai-agents-toolkit", specifier = ">=0.0.34" },
     { name = "langchain", specifier = ">=0.3.21" },
     { name = "langgraph", specifier = ">=0.3.20" },
     { name = "python-dotenv", specifier = ">=1.1.0" },
@@ -461,15 +465,15 @@ wheels = [
 
 [[package]]
 name = "langgraph-prebuilt"
-version = "0.1.4"
+version = "0.1.6"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "langchain-core" },
     { name = "langgraph-checkpoint" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a9/0b/487fbf469387216d17d2cdcc82952ddd56649ca15953ea4e13b01186976e/langgraph_prebuilt-0.1.4.tar.gz", hash = "sha256:61a5543c6d1be3d54bf53147763b4510d6ab2989347a16d1e9c366ef4dbcf0d8", size = 23409 }
+sdist = { url = "https://files.pythonhosted.org/packages/36/67/bf707a12641257606cf2e270ab55f95c60317b6420993bfcc2aaddd0a36a/langgraph_prebuilt-0.1.6.tar.gz", hash = "sha256:07f69e088705cd4c9b81e9725b67c10060871b392e500961e605d4cc605a1e13", size = 23612 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c7/bd/a1d898d5e0e3c1e01e4f1a2ee56d4ae03ff7f1d3bbc2b40831ebd8e0d24c/langgraph_prebuilt-0.1.4-py3-none-any.whl", hash = "sha256:23110997d2747cfb7ca2649ca78c6fc950a6646a5c96b7e9d8b7d19221f896a1", size = 24793 },
+    { url = "https://files.pythonhosted.org/packages/fb/e9/ad4456ea09055a70d4bdebfc01399141327578cd08a3bee28b53dbaa8900/langgraph_prebuilt-0.1.6-py3-none-any.whl", hash = "sha256:247c5819abf997b9070f5832d46a171c23d98684760652e3358403612ad91e03", size = 25004 },
 ]
 
 [[package]]
