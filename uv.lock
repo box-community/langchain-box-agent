@@ -30,15 +30,15 @@ wheels = [
 
 [[package]]
 name = "box-ai-agents-toolkit"
-version = "0.0.34"
+version = "0.0.38"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "box-sdk-gen" },
     { name = "python-dotenv" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/95/a6/3246498bce9b6027ae544af52c68e4f15369c408576103be349d8e859010/box_ai_agents_toolkit-0.0.34.tar.gz", hash = "sha256:e1753b3240a57080d749389b62c10953681ccf7578c4be9f245c3af08c4f8a4c", size = 20902 }
+sdist = { url = "https://files.pythonhosted.org/packages/cb/80/1c1fd187872e171e3fc4a47962da93bad5d849afd853a90147ee1538cd4c/box_ai_agents_toolkit-0.0.38.tar.gz", hash = "sha256:7f262d665aee86342b99db12ac69a6ffc2b2d8b4cd0cb8829efb13ad164e54e8", size = 25408 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/01/7d/a725170074db5f1550428aaf8d3fbf55d6afb304c20b52c0f92e8df46729/box_ai_agents_toolkit-0.0.34-py3-none-any.whl", hash = "sha256:2ca3a3ccbc81a276e6f8840f1a26aa44143902af8f6f449292c3cffae1b3a648", size = 9325 },
+    { url = "https://files.pythonhosted.org/packages/38/c0/9f7a6e0afe21964c9408982c737f5388a141ffcc48145d2023956b02df38/box_ai_agents_toolkit-0.0.38-py3-none-any.whl", hash = "sha256:69c09034e790dede33c1574b50e3ee60f87e3b28f6364a0d5416207e49e1d05d", size = 13967 },
 ]
 
 [[package]]
@@ -341,7 +341,7 @@ wheels = [
 
 [[package]]
 name = "langchain"
-version = "0.3.21"
+version = "0.3.23"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "langchain-core" },
@@ -352,9 +352,9 @@ dependencies = [
     { name = "requests" },
     { name = "sqlalchemy" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e7/54/ea3e30df3a7f6f9986cdb5a53d46a219d1e20b5a5e72a480b932a961ff30/langchain-0.3.21.tar.gz", hash = "sha256:a10c81f8c450158af90bf37190298d996208cfd15dd3accc1c585f068473d619", size = 10225431 }
+sdist = { url = "https://files.pythonhosted.org/packages/47/ea/b0de568ca17614d5c00275c4ca506af4139cc7c51d0418802b2447055c00/langchain-0.3.23.tar.gz", hash = "sha256:d95004afe8abebb52d51d6026270248da3f4b53d93e9bf699f76005e0c83ad34", size = 10225576 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c3/89/eeab8c671d791ce872225aa77a05805ba67052764a3faa6331fc4674e855/langchain-0.3.21-py3-none-any.whl", hash = "sha256:c8bd2372440cc5d48cb50b2d532c2e24036124f1c467002ceb15bc7b86c92579", size = 1011714 },
+    { url = "https://files.pythonhosted.org/packages/d4/49/6e933837da1931c9db745967282ff8bfff51bc3faec0eade846b12203b75/langchain-0.3.23-py3-none-any.whl", hash = "sha256:084f05ee7e80b7c3f378ebadd7309f2a37868ce2906fa0ae64365a67843ade3d", size = 1011778 },
 ]
 
 [[package]]
@@ -377,9 +377,9 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "box-ai-agents-toolkit", specifier = ">=0.0.34" },
-    { name = "langchain", specifier = ">=0.3.21" },
-    { name = "langgraph", specifier = ">=0.3.20" },
+    { name = "box-ai-agents-toolkit", specifier = ">=0.0.38" },
+    { name = "langchain", specifier = ">=0.3.23" },
+    { name = "langgraph", specifier = ">=0.3.26" },
     { name = "python-dotenv", specifier = ">=1.1.0" },
 ]
 
@@ -392,7 +392,7 @@ dev = [
 
 [[package]]
 name = "langchain-core"
-version = "0.3.48"
+version = "0.3.51"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jsonpatch" },
@@ -403,9 +403,9 @@ dependencies = [
     { name = "tenacity" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/13/f3/7dffb16b9245d333d5af381dd3b0130a0d4c652c22e386d0819e773c90f3/langchain_core-0.3.48.tar.gz", hash = "sha256:be4b2fe36d8a11fb4b6b13e0808b12aea9f25e345624ffafe1d606afb6059f21", size = 534337 }
+sdist = { url = "https://files.pythonhosted.org/packages/6e/24/74dfce829f63aaf09885ae569121335a62ecfa5043a35d9e819cd0e046f0/langchain_core-0.3.51.tar.gz", hash = "sha256:db76b9cc331411602cb40ba0469a161febe7a0663fbcaddbc9056046ac2d22f4", size = 542003 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/66/06/4ddafa246b4f1b2017918237b681e884fd02d34b0cb3dcc802105b53872d/langchain_core-0.3.48-py3-none-any.whl", hash = "sha256:21e4fe84262b9c7ad8aefe7816439ede130893f8a64b8c965cd9695c2be91c73", size = 418651 },
+    { url = "https://files.pythonhosted.org/packages/a9/bf/3464d759bf8687a3bbdfeb9af2f2aeb0a265c6d5ef5fd9274c2a70449f77/langchain_core-0.3.51-py3-none-any.whl", hash = "sha256:4bd71e8acd45362aa428953f2a91d8162318014544a2216e4b769463caf68e13", size = 423303 },
 ]
 
 [[package]]
@@ -424,19 +424,19 @@ wheels = [
 
 [[package]]
 name = "langchain-text-splitters"
-version = "0.3.7"
+version = "0.3.8"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "langchain-core" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/5a/e7/638b44a41e56c3e32cc90cab3622ac2e4c73645252485427d6b2742fcfa8/langchain_text_splitters-0.3.7.tar.gz", hash = "sha256:7dbf0fb98e10bb91792a1d33f540e2287f9cc1dc30ade45b7aedd2d5cd3dc70b", size = 42180 }
+sdist = { url = "https://files.pythonhosted.org/packages/e7/ac/b4a25c5716bb0103b1515f1f52cc69ffb1035a5a225ee5afe3aed28bf57b/langchain_text_splitters-0.3.8.tar.gz", hash = "sha256:116d4b9f2a22dda357d0b79e30acf005c5518177971c66a9f1ab0edfdb0f912e", size = 42128 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d3/85/b7a34b6d34bcc89a2252f5ffea30b94077ba3d7adf72e31b9e04e68c901a/langchain_text_splitters-0.3.7-py3-none-any.whl", hash = "sha256:31ba826013e3f563359d7c7f1e99b1cdb94897f665675ee505718c116e7e20ad", size = 32513 },
+    { url = "https://files.pythonhosted.org/packages/8b/a3/3696ff2444658053c01b6b7443e761f28bb71217d82bb89137a978c5f66f/langchain_text_splitters-0.3.8-py3-none-any.whl", hash = "sha256:e75cc0f4ae58dcf07d9f18776400cf8ade27fadd4ff6d264df6278bb302f6f02", size = 32440 },
 ]
 
 [[package]]
 name = "langgraph"
-version = "0.3.20"
+version = "0.3.26"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "langchain-core" },
@@ -445,9 +445,9 @@ dependencies = [
     { name = "langgraph-sdk" },
     { name = "xxhash" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/40/4f/3026a775bf6bd03ace19bb25c1b91b0a77f46a71b4486bdb61e48aada0b4/langgraph-0.3.20.tar.gz", hash = "sha256:c980ec26aae3b52f4d75e7b852c22360c93c803e22297e85963c84bd53100020", size = 116501 }
+sdist = { url = "https://files.pythonhosted.org/packages/c6/20/d2c4f8b6378ec0d2b9f8925b9e1fdaa6cb0e1ac16213676ba6f6cbc45c09/langgraph-0.3.26.tar.gz", hash = "sha256:cb50d819da206bb0267febf265bd5bda8915aa6d61729d2f86dd5e0d0e83f8fd", size = 120112 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/75/3c/29ad4508d90bb1d7bd80ca51627bc12d58e866c3f5dcf5d03f8a81afb704/langgraph-0.3.20-py3-none-any.whl", hash = "sha256:b700138e4b75853a76052b06d3f00bbb2336d0cb88482700b9f4974a76e030cd", size = 137937 },
+    { url = "https://files.pythonhosted.org/packages/63/c1/868cb7be1c4ba16c1ea48aa7ffd772264441154dd62dad56b34381d3a41d/langgraph-0.3.26-py3-none-any.whl", hash = "sha256:3a153f1b869ce8bfee551bd7911eef6f207a76594a41419e7d9bd498367c49ef", size = 142415 },
 ]
 
 [[package]]
