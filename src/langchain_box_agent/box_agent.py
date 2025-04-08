@@ -20,6 +20,7 @@ from langchain_core.language_models import (
     BaseChatModel,
 )
 from langchain_core.tools import BaseTool
+from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph.graph import CompiledGraph
 from langgraph.prebuilt import create_react_agent
 
@@ -77,7 +78,9 @@ class LangChainBoxAgent:
             )
         )
 
-        self.chat = create_react_agent(model, self.tools)
+        memory = MemorySaver()
+
+        self.chat = create_react_agent(model, self.tools, checkpointer=memory)
 
         # chat_model.bind_tools(self.tools)
 
