@@ -22,7 +22,7 @@ LangChain Box Agent is a Python library that integrates [LangChain](https://gith
    ```
 2. Install dependencies:
     ```bash
-    pip install -r requirements.txt
+    uv sync
     ```
 3. Set up environment variables: Create a .env file in the root directory with the following variables:    
 
