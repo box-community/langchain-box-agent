@@ -62,109 +62,122 @@ class TypewriterText:
             self.widget.config(state=tk.DISABLED)
 
 
-class ModernStyles:
-    """Modern styles for the application."""
+class MacStyles:
+    """Simple macOS-like styles for the application."""
 
-    # Colors
-    BG_COLOR = "#f5f5f5"  # Light gray background
-    PRIMARY_COLOR = "#007aff"  # macOS blue accent
-    SECONDARY_COLOR = "#8e8e93"  # Subtle gray for secondary elements
-    SUCCESS_COLOR = "#34c759"  # Green for success
-    WARNING_COLOR = "#ffcc00"  # Yellow for warnings
-    ERROR_COLOR = "#ff3b30"  # Red for errors
+    # Base colors
+    BG_COLOR = "#ddd"  # White
+    LIGHT_BG = "#f0f0f0"  # Very light gray
+    DARK_TEXT = "#000000"  # Black
+    HIGHLIGHT = "#0a84ff"  # Apple blue
 
-    # Text colors
-    TEXT_COLOR = "#1c1c1e"  # Dark text
-    TEXT_SECONDARY = "#8e8e93"  # Subtle gray for secondary text
-    TEXT_LIGHT = "#ffffff"  # Light text for contrast
+    # Text Input colors
+    INPUT_BG = "#fff"  # White background for text input
+    INPUT_BORDER = "#000"  # Light gray border for text input
+
+    # Button colors
+    BUTTON_BG = "#ebebeb"  # Light gray
+    BUTTON_HOVER = "#e5e5e5"  # Slightly darker gray for hover
+    BUTTON_PRESS = "#d0d0d0"  # Even darker gray for pressed state
+
+    # Primary button colors (blue)
+    PRIMARY_BUTTON_BG = HIGHLIGHT  # Apple blue
+    PRIMARY_BUTTON_HOVER = "#0077e5"  # Darker blue for hover
+    PRIMARY_BUTTON_PRESS = "#0062c1"  # Even darker blue for pressed state
+    PRIMARY_BUTTON_TEXT = "#ffffff"  # White text
+
+    # Prompt button colors
+    PROMPT_BUTTON_BG = "#f6f6f6"  # Very light gray
+    PROMPT_BUTTON_HOVER = "#e5e5e5"  # Slightly darker for hover
 
     # Chat colors
-    USER_BG = "#e5e5ea"  # Light gray for user messages
-    USER_TEXT = "#1c1c1e"  # Dark text for user messages
-    AGENT_BG = "#007aff"  # Blue for agent messages
-    AGENT_TEXT = "#ffffff"  # White text for agent messages
+    USER_BG = "#fff"  # Light gray (Messages app)
+    USER_TEXT = "#333"  # Black
+    AGENT_BG = "#fff"  # Apple blue
+    AGENT_TEXT = "#333"  # White text
 
-    # Font families
-    DEFAULT_FONT = ".SF NS"  # macOS system font
-    MONOSPACE_FONT = "Menlo"  # macOS monospace font
+    # Other UI elements
+    BORDER_COLOR = "#e0e0e0"  # Light gray for borders
+    SEPARATOR_COLOR = "#e0e0e0"  # Light gray for separators
 
-    # Font sizes
-    FONT_LARGE = 16
-    FONT_MEDIUM = 14
-    FONT_SMALL = 12
+    # Font settings
+    DEFAULT_FONT = "SF Pro"  # Will fall back to system default if not available
+    FONT_SIZE = 12
+    SMALL_FONT = 9
 
     @classmethod
     def configure_styles(cls, style):
-        """Configure ttk styles for the application."""
+        """Configure minimal ttk styles for a mac-like appearance."""
+        # Reset all styles to defaults first
+        style.theme_use("default")
+
+        # Configure basic elements
+        style.configure(
+            ".",
+            font=(cls.DEFAULT_FONT, cls.FONT_SIZE),
+            background=cls.BG_COLOR,
+            foreground=cls.DARK_TEXT,
+        )
+
+        # Frame styles
         style.configure("TFrame", background=cls.BG_COLOR)
-        style.configure("TLabel", background=cls.BG_COLOR, foreground=cls.TEXT_COLOR)
-        style.configure(
-            "TButton",
-            font=(cls.DEFAULT_FONT, cls.FONT_MEDIUM),
-            background=cls.PRIMARY_COLOR,
-            foreground=cls.TEXT_LIGHT,
-            padding=10,
-        )
+        style.configure("TLabelframe", background=cls.BG_COLOR)
+        style.configure("TLabelframe.Label", background=cls.BG_COLOR)
 
-        style.configure(
-            "Primary.TButton",
-            background=cls.PRIMARY_COLOR,
-            foreground=cls.TEXT_LIGHT,
-            relief="flat",
-        )
-
-        style.configure(
-            "Secondary.TButton",
-            background=cls.SECONDARY_COLOR,
-            foreground=cls.TEXT_LIGHT,
-            relief="flat",
-        )
-
-        style.configure(
-            "TLabelframe",
-            background=cls.BG_COLOR,
-            foreground=cls.TEXT_COLOR,
-            padding=10,
-        )
-
-        style.configure(
-            "TLabelframe.Label",
-            background=cls.BG_COLOR,
-            foreground=cls.TEXT_COLOR,
-            font=(cls.DEFAULT_FONT, cls.FONT_MEDIUM, "bold"),
-        )
-
+        # Label styles
+        style.configure("TLabel", background=cls.BG_COLOR, padding=3)
+        style.configure("Header.TLabel", font=(cls.DEFAULT_FONT, 15, "bold"))
         style.configure(
             "Status.TLabel",
-            background=cls.SECONDARY_COLOR,
-            foreground=cls.TEXT_LIGHT,
-            padding=5,
+            background=cls.LIGHT_BG,
+            padding=3,
+            font=(cls.DEFAULT_FONT, cls.SMALL_FONT),
         )
 
+        # Button styles
         style.configure(
-            "Title.TLabel",
-            background=cls.BG_COLOR,
-            foreground=cls.PRIMARY_COLOR,
-            font=(cls.DEFAULT_FONT, cls.FONT_LARGE, "bold"),
-        )
-
-        style.configure(
-            "Subtitle.TLabel",
-            background=cls.BG_COLOR,
-            foreground=cls.SECONDARY_COLOR,
-            font=(cls.DEFAULT_FONT, cls.FONT_MEDIUM, "italic"),
-        )
-
-        style.configure(
-            "PromptButton.TButton",
-            background=cls.USER_BG,
-            foreground=cls.TEXT_COLOR,
-            font=(cls.DEFAULT_FONT, cls.FONT_SMALL),
+            "TButton",
+            padding=6,
             relief="flat",
+            background=cls.BUTTON_BG,
+            borderwidth=0,
+            font=(cls.DEFAULT_FONT, cls.FONT_SIZE),
         )
 
         style.map(
-            "PromptButton.TButton",
-            background=[("active", cls.PRIMARY_COLOR)],
-            foreground=[("active", cls.TEXT_LIGHT)],
+            "TButton",
+            background=[("active", cls.BUTTON_HOVER), ("pressed", cls.BUTTON_PRESS)],
+            relief=[("pressed", "sunken")],
         )
+
+        # Primary button
+        style.configure(
+            "Primary.TButton",
+            background=cls.PRIMARY_BUTTON_BG,
+            foreground=cls.PRIMARY_BUTTON_TEXT,
+        )
+
+        style.map(
+            "Primary.TButton",
+            background=[
+                ("active", cls.PRIMARY_BUTTON_HOVER),
+                ("pressed", cls.PRIMARY_BUTTON_PRESS),
+            ],
+            foreground=[
+                ("active", cls.PRIMARY_BUTTON_TEXT),
+                ("pressed", cls.PRIMARY_BUTTON_TEXT),
+            ],
+        )
+
+        # Prompt button
+        style.configure(
+            "Prompt.TButton",
+            background=cls.PROMPT_BUTTON_BG,
+            padding=4,
+            font=(cls.DEFAULT_FONT, cls.SMALL_FONT),
+        )
+
+        style.map("Prompt.TButton", background=[("active", cls.PROMPT_BUTTON_HOVER)])
+
+        # Separator style
+        style.configure("TSeparator", background=cls.SEPARATOR_COLOR)
