@@ -2,13 +2,12 @@ import threading
 import tkinter as tk
 from tkinter import scrolledtext, ttk
 
+from .langchain_box_agent_ui_utils import TypewriterText
+
 
 class LangChainBoxAgentUI(tk.Tk):
     def __init__(self, agent, status_message: str = "Connected"):
         super().__init__()
-
-        # Import styles immediately to use in initialization
-        from langchain_box_agent_ui_utils import MacStyles
 
         self.title("Box Agent")
         self.geometry("800x600")
@@ -46,7 +45,6 @@ class LangChainBoxAgentUI(tk.Tk):
 
     def create_widgets(self):
         """Create the UI widgets with a simple, clean design."""
-        # from langchain_box_agent_ui_utils import MacStyles
 
         # Main frame with padding
         main_frame = ttk.Frame(self, padding=10)
@@ -217,7 +215,6 @@ class LangChainBoxAgentUI(tk.Tk):
 
     def add_user_message(self, message: str):
         """Add user message to chat with imessage-like bubble effect."""
-        from langchain_box_agent_ui_utils import TypewriterText
 
         self.chat_history.config(state=tk.NORMAL)
 
@@ -248,7 +245,6 @@ class LangChainBoxAgentUI(tk.Tk):
 
     def add_agent_message(self, message: str):
         """Add agent message to chat with imessage-like bubble effect."""
-        from langchain_box_agent_ui_utils import TypewriterText
 
         self.chat_history.config(state=tk.NORMAL)
 
