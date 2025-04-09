@@ -1,4 +1,4 @@
-from box_sdk_gen import BoxClient, User
+from box_ai_agents_toolkit import BoxClient
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -6,7 +6,7 @@ load_dotenv()
 
 def test_get_ccg_client(box_client_ccg: BoxClient):
     client = box_client_ccg
-    me: User = client.users.get_user_me()
+    me = client.users.get_user_me()
 
     assert me.id is not None
     assert me.type == "user" or me.type == "enterprise"
