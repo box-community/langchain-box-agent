@@ -37,23 +37,33 @@ LangChain Box Agent is a Python library that integrates [LangChain](https://gith
 ### Authentication
 Authenticate with Box using CCG:
 ```python
-from src.langchain_box_agent.box.box_authentication import get_ccg_client
+from box_ai_agents_toolkit import (
+    BoxClient,
+    get_ccg_client,
+)
 
-client = get_ccg_client()
+client: BoxClient = get_ccg_client()
 ```
 
 ### LangChain Box Agent
 Create a LangChain Box Agent to interact with Box:
 ```python
+import uuid
 from langchain.chat_models import init_chat_model
 from src.langchain_box_agent.box_agent import LangChainBoxAgent
 
 client = get_ccg_client()
 model = init_chat_model("gpt-4", model_provider="openai")
 
+chat_id = uuid.uuid4()
+chat_config =  {"configurable": {"thread_id": str(chat_id)}}
+
 box_agent = LangChainBoxAgent(client, model)
 
-response = box_agent.chat.invoke({"messages": [{"content": "Who am I?"}]})
+response = box_agent.chat.invoke(
+        {"messages": [HumanMessage(content="hello world")]}, chat_config
+    )
+
 print(response)
 ```
 
@@ -66,7 +76,18 @@ print(response)
 - List Folder Content: List the contents of a folder.
 
 
+## Running the demo
+Make sure TKInter is installed in your system.
 
+For MacOS:
+```bash
+brew install python-tk
+```
+
+And then run the demo:
+```bash
+uv run src/run_agent_demo.py
+```
 
 ## Development
 ### Running Tests
@@ -74,7 +95,7 @@ print(response)
 Run the test suite using `pytest`:
 
 ```bash
-pytest
+uv run pytest
 ```
 ### Code Style
 This project uses Ruff for linting. Run the following command to check for linting issues:

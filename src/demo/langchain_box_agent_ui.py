@@ -9,8 +9,8 @@ class LangChainBoxAgentUI(tk.Tk):
     def __init__(self, agent, status_message: str = "Connected"):
         super().__init__()
 
-        self.title("Box Agent")
-        self.geometry("800x600")
+        self.title("Demo")
+        self.geometry("900x900")
         self.minsize(700, 500)
         # self.configure(bg=MacStyles.BG_COLOR)
 
@@ -30,11 +30,9 @@ class LangChainBoxAgentUI(tk.Tk):
         # Sample predefined prompts
         self.predefined_prompts = [
             "Who am I?",
-            "Search for PDF files",
-            "What's in my root folder?",
-            "Create a folder called 'Demo'",
-            "Read sample.txt",
-            "Extract data from HAB-1-01.docx",
+            "List all files under the procurement folder",
+            "Is there an invoice that does not reference a purchase order?",
+            "Check all the purchase orders and see if any corresponds to that invoice",
         ]
 
         # Setup UI

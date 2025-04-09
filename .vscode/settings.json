@@ -9,6 +9,7 @@
         "dotenv",
         "Gregor",
         "padx",
-        "pady"
+        "pady",
+        "textvariable"
     ]
 }

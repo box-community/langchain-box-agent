@@ -30,5 +30,5 @@ if __name__ == "__main__":
     agent = RealBoxAgent(langchain_agent)
 
     # Start the UI with the simulated agent
-    app = LangChainBoxAgentUI(agent, status_message="Real Mode (Box Agent)")
+    app = LangChainBoxAgentUI(agent, status_message="Ready for queries")
     app.mainloop()
