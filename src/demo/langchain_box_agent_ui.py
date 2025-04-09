@@ -1,8 +1,6 @@
+import threading
 import tkinter as tk
 from tkinter import scrolledtext, ttk
-import threading
-import time
-from typing import Protocol
 
 
 class LangChainBoxAgentUI(tk.Tk):

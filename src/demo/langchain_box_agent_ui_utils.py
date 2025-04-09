@@ -1,11 +1,7 @@
-import json
-import os
-import sys
 import threading
 import time
 import tkinter as tk
-from tkinter import scrolledtext, ttk
-from typing import Any, Callable, Dict, List, Optional, Protocol, Tuple
+from typing import Protocol
 
 
 class Agent(Protocol):

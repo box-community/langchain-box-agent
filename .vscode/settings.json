@@ -5,6 +5,9 @@
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
     "cSpell.words": [
+        "checkpointer",
+        "dotenv",
+        "Gregor",
         "padx",
         "pady"
     ]
