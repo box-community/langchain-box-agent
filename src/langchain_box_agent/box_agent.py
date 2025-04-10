@@ -27,14 +27,24 @@ from langgraph.prebuilt import create_react_agent
 
 class LangChainBoxAgent:
     client: BoxClient
-    chat: CompiledGraph
-    # chat_model: BaseChatModel
+    react_agent: CompiledGraph
     tools: List[BaseTool] = []
-    # agent = CompiledGraph
 
-    def __init__(self, client: BoxClient, model: BaseChatModel):
-        # self.chat_model = chat_model
+    def __init__(
+        self, client: BoxClient, model: BaseChatModel, use_internal_memory: bool = False
+    ):
         self.client = client
+
+        self._init_tools()
+        memory = None
+
+        if use_internal_memory:
+            memory = MemorySaver()
+
+        self.react_agent = create_react_agent(model, self.tools, checkpointer=memory)
+
+    def _init_tools(self):
+        """Initialize the tools for the agent."""
         self.tools.append(
             StructuredTool.from_function(
                 self.box_who_am_i,
@@ -77,12 +87,6 @@ class LangChainBoxAgent:
                 parse_docstring=True,
             )
         )
-
-        memory = MemorySaver()
-
-        self.chat = create_react_agent(model, self.tools, checkpointer=memory)
-
-        # chat_model.bind_tools(self.tools)
 
     def box_who_am_i(self) -> str:
         """who am I, Retrieves the current user's information in box. Checks the connection to Box

@@ -1,0 +1,9 @@
+{
+  "dependencies": [
+    "."
+  ],
+  "graphs": {
+    "agent": "./src/box_agent_langgraph.py:react_agent"
+  },
+  "env": ".env"
+}

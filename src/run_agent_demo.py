@@ -12,6 +12,7 @@ from demo.agent_implementations import RealBoxAgent
 from demo.langchain_box_agent_ui import LangChainBoxAgentUI
 from langchain_box_agent.box_agent import LangChainBoxAgent
 
+
 if __name__ == "__main__":
     # Initialize Box client
     client = get_ccg_client()
@@ -24,11 +25,11 @@ if __name__ == "__main__":
     model = init_chat_model("gpt-4", model_provider="openai")
 
     # Create the Box agent
-    langchain_agent = LangChainBoxAgent(client, model)
+    langchain_agent = LangChainBoxAgent(client, model, use_internal_memory=True)
 
     # Wrap in our agent interface
-    agent = RealBoxAgent(langchain_agent)
+    agent_ui = RealBoxAgent(langchain_agent)
 
     # Start the UI with the simulated agent
-    app = LangChainBoxAgentUI(agent, status_message="Ready for queries")
+    app = LangChainBoxAgentUI(agent_ui, status_message="Ready for queries")
     app.mainloop()

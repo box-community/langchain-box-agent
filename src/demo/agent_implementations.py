@@ -27,7 +27,7 @@ class RealBoxAgent:
     def process_query(self, query: str) -> str:
         """Process a user query through the real Box agent."""
         # Call the LangChain agent
-        response = self.agent.chat.invoke(
+        response = self.agent.react_agent.invoke(
             {"messages": [HumanMessage(content=query)]}, self.config
         )
         # Extract the response content
@@ -42,7 +42,7 @@ class RealBoxAgent:
         """Process a user query through the real Box agent."""
         # Call the LangChain agent
 
-        for step in self.agent.chat.stream(
+        for step in self.agent.react_agent.stream(
             {"messages": [HumanMessage(content=query)]},
             config=self.config,
             stream_mode="values",

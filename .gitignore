@@ -9,6 +9,9 @@ wheels/
 # Virtual environments
 .venv
 
+# Lancghain stuff
+.langgraph_api/
+
 # Env variables
 .env
 .auth.*

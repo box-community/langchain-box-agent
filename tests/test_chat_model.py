@@ -12,9 +12,9 @@ def test_box_agent_chat_model_simple(box_client_ccg: BoxClient, chat_config: str
     client = box_client_ccg
     model = init_chat_model("gpt-4", model_provider="openai")
 
-    box_agent = LangChainBoxAgent(client, model)
+    box_agent = LangChainBoxAgent(client, model, True)
 
-    response = box_agent.chat.invoke(
+    response = box_agent.react_agent.invoke(
         {"messages": [HumanMessage(content="hello world")]}, chat_config
     )
 

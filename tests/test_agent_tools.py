@@ -1,4 +1,4 @@
-from box_ai_agents_toolkit import BoxClient, get_ccg_client
+from box_ai_agents_toolkit import BoxClient
 from langchain.chat_models import init_chat_model
 from langchain_core.messages import HumanMessage
 
@@ -8,8 +8,8 @@ from src.langchain_box_agent.box_agent import LangChainBoxAgent
 def test_agent_tools_who_am_i(box_client_ccg: BoxClient, chat_config: str):
     client: BoxClient = box_client_ccg
     model = init_chat_model("gpt-4", model_provider="openai")
-    box_agent = LangChainBoxAgent(client, model)
-    response = box_agent.chat.invoke(
+    box_agent = LangChainBoxAgent(client, model, True)
+    response = box_agent.react_agent.invoke(
         {"messages": [HumanMessage(content="who am i?")]}, chat_config
     )
     messages = response.get("messages", [])
@@ -20,8 +20,8 @@ def test_agent_tools_who_am_i(box_client_ccg: BoxClient, chat_config: str):
 def test_agent_tools_box_search(box_client_ccg: BoxClient, chat_config: str):
     client: BoxClient = box_client_ccg
     model = init_chat_model("gpt-4", model_provider="openai")
-    box_agent = LangChainBoxAgent(client, model)
-    response = box_agent.chat.invoke(
+    box_agent = LangChainBoxAgent(client, model, True)
+    response = box_agent.react_agent.invoke(
         {"messages": [HumanMessage(content="locate my hab-03-01 file by name")]},
         chat_config,
     )
@@ -33,8 +33,8 @@ def test_agent_tools_box_search(box_client_ccg: BoxClient, chat_config: str):
 def test_agent_tools_box_read_file_by_id(box_client_ccg: BoxClient, chat_config: str):
     client: BoxClient = box_client_ccg
     model = init_chat_model("gpt-4", model_provider="openai")
-    box_agent = LangChainBoxAgent(client, model)
-    response = box_agent.chat.invoke(
+    box_agent = LangChainBoxAgent(client, model, True)
+    response = box_agent.react_agent.invoke(
         {"messages": [HumanMessage(content="read me file with id 1728675498613")]},
         chat_config,
     )
@@ -48,8 +48,8 @@ def test_agent_tools_box_read_file_by_id(box_client_ccg: BoxClient, chat_config:
 def test_agent_tools_box_aks_ai(box_client_ccg: BoxClient, chat_config: str):
     client: BoxClient = box_client_ccg
     model = init_chat_model("gpt-4", model_provider="openai")
-    box_agent = LangChainBoxAgent(client, model)
-    response = box_agent.chat.invoke(
+    box_agent = LangChainBoxAgent(client, model, True)
+    response = box_agent.react_agent.invoke(
         {
             "messages": [
                 HumanMessage(
@@ -69,8 +69,8 @@ def test_agent_tools_box_aks_ai(box_client_ccg: BoxClient, chat_config: str):
 def test_agent_tools_locate_folder_by_name(box_client_ccg: BoxClient, chat_config: str):
     client: BoxClient = box_client_ccg
     model = init_chat_model("gpt-4", model_provider="openai")
-    box_agent = LangChainBoxAgent(client, model)
-    response = box_agent.chat.invoke(
+    box_agent = LangChainBoxAgent(client, model, True)
+    response = box_agent.react_agent.invoke(
         {"messages": [HumanMessage(content="locate folder with name hab-01")]},
         chat_config,
     )
@@ -84,8 +84,8 @@ def test_agent_tools_locate_folder_by_name(box_client_ccg: BoxClient, chat_confi
 def test_agent_tools_ai_extract_date(box_client_ccg: BoxClient, chat_config: str):
     client: BoxClient = box_client_ccg
     model = init_chat_model("gpt-4", model_provider="openai")
-    box_agent = LangChainBoxAgent(client, model)
-    response = box_agent.chat.invoke(
+    box_agent = LangChainBoxAgent(client, model, True)
+    response = box_agent.react_agent.invoke(
         {
             "messages": [
                 HumanMessage(
@@ -108,8 +108,8 @@ def test_agent_tools_list_folder_content_by_folder_id(
 ):
     client: BoxClient = box_client_ccg
     model = init_chat_model("gpt-4", model_provider="openai")
-    box_agent = LangChainBoxAgent(client, model)
-    response = box_agent.chat.invoke(
+    box_agent = LangChainBoxAgent(client, model, True)
+    response = box_agent.react_agent.invoke(
         {"messages": [HumanMessage(content="list content of folder 298939487242")]},
         chat_config,
     )

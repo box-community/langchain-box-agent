@@ -379,7 +379,7 @@ dev = [
 requires-dist = [
     { name = "box-ai-agents-toolkit", specifier = ">=0.0.38" },
     { name = "langchain", specifier = ">=0.3.23" },
-    { name = "langgraph", specifier = ">=0.3.26" },
+    { name = "langgraph", specifier = ">=0.3.27" },
     { name = "python-dotenv", specifier = ">=1.1.0" },
 ]
 
@@ -436,7 +436,7 @@ wheels = [
 
 [[package]]
 name = "langgraph"
-version = "0.3.26"
+version = "0.3.27"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "langchain-core" },
@@ -445,9 +445,9 @@ dependencies = [
     { name = "langgraph-sdk" },
     { name = "xxhash" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c6/20/d2c4f8b6378ec0d2b9f8925b9e1fdaa6cb0e1ac16213676ba6f6cbc45c09/langgraph-0.3.26.tar.gz", hash = "sha256:cb50d819da206bb0267febf265bd5bda8915aa6d61729d2f86dd5e0d0e83f8fd", size = 120112 }
+sdist = { url = "https://files.pythonhosted.org/packages/e4/ab/889224bafa9f927150095c038481d485dc567bd81e82e676d912f5d62c13/langgraph-0.3.27.tar.gz", hash = "sha256:bd731f9e56b82d069b20b360107f8cfc7e80f3035d33fcfb833cf80bcb2a270d", size = 120537 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/63/c1/868cb7be1c4ba16c1ea48aa7ffd772264441154dd62dad56b34381d3a41d/langgraph-0.3.26-py3-none-any.whl", hash = "sha256:3a153f1b869ce8bfee551bd7911eef6f207a76594a41419e7d9bd498367c49ef", size = 142415 },
+    { url = "https://files.pythonhosted.org/packages/42/59/822928941a8c4251b61d7fd0616b1b8c99ce9e6829034160e5e47ef85cc2/langgraph-0.3.27-py3-none-any.whl", hash = "sha256:7d866fcd4cb0bc4931b5d5ec622c8bda9b88c41e37c79fd9ef1007460fb448a1", size = 142961 },
 ]
 
 [[package]]
