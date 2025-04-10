@@ -4,7 +4,6 @@ from langchain.chat_models import init_chat_model
 
 from langchain_box_agent.box_agent import LangChainBoxAgent
 
-
 # Initialize Box client
 client = get_ccg_client()
 

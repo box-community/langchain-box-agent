@@ -12,7 +12,6 @@ from demo.agent_implementations import RealBoxAgent
 from demo.langchain_box_agent_ui import LangChainBoxAgentUI
 from langchain_box_agent.box_agent import LangChainBoxAgent
 
-
 if __name__ == "__main__":
     # Initialize Box client
     client = get_ccg_client()
